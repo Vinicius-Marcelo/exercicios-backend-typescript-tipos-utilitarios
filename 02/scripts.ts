@@ -19,3 +19,13 @@ type Carrinho = {
     tipoTransacao: 'credito' | 'Debito',
     cartao: Cartao
 }
+
+type Endereco = {
+    rua: string
+    cidade: string
+}
+
+type NovoCarrinho = Omit<Carrinho, 'tipoTransacao'> & {
+    endereco: Endereco
+    tipoTransacao: Lowercase<'debito' | 'credito'>
+}
